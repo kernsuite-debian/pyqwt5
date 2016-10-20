@@ -1,0 +1,22 @@
+From 9b72afaeb1d8ec8602826fca7889c5bd579f292c Mon Sep 17 00:00:00 2001
+From: "Gudjon I. Gudjonsson" <gudjon@gudjon.org>
+Date: Thu, 18 Aug 2016 12:10:11 +0200
+Subject: Disable impageplot example
+
+---
+ qt4examples/Grab.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/qt4examples/Grab.py b/qt4examples/Grab.py
+index 8658967..7aaeabd 100755
+--- a/qt4examples/Grab.py
++++ b/qt4examples/Grab.py
+@@ -26,7 +26,7 @@ jobs = [
+     'ErrorBarDemo',
+     'EventFilterDemo',
+     'HistogramDemo',
+-    'ImagePlotDemo',
++#    'ImagePlotDemo',
+     'MapDemo',
+     'MaskedDataDemo',
+ #    'MultiDemo',

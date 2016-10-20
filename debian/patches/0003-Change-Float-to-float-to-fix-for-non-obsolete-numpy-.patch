@@ -1,0 +1,161 @@
+From b9557a4802c2ec2e36cf8fbbf53abcbceeedd2cc Mon Sep 17 00:00:00 2001
+From: "Gudjon I. Gudjonsson" <gudjon@gudjon.org>
+Date: Thu, 18 Aug 2016 11:44:12 +0200
+Subject: Change Float to float to fix for non-obsolete numpy version.
+
+---
+ qt4examples/CPUplot.py         |  8 ++++----
+ qt4examples/DataDemo.py        |  4 ++--
+ qt4examples/ErrorBarDemo.py    | 10 +++++-----
+ qt4examples/EventFilterDemo.py |  8 ++++----
+ qt4examples/MapDemo.py         |  8 ++++----
+ 5 files changed, 19 insertions(+), 19 deletions(-)
+
+diff --git a/qt4examples/CPUplot.py b/qt4examples/CPUplot.py
+index b3f92c1..fddc887 100755
+--- a/qt4examples/CPUplot.py
++++ b/qt4examples/CPUplot.py
+@@ -358,28 +358,28 @@ class CpuPlot(Qwt.QwtPlot):
+         curve.setColor(Qt.Qt.red)
+         curve.attach(self)
+         self.curves['System'] = curve
+-        self.data['System'] = zeros(HISTORY, Float)
++        self.data['System'] = zeros(HISTORY, float)
+ 
+         curve = CpuCurve('User')
+         curve.setColor(Qt.Qt.blue)
+         curve.setZ(curve.z() - 1.0)
+         curve.attach(self)
+         self.curves['User'] = curve
+-        self.data['User'] = zeros(HISTORY, Float)
++        self.data['User'] = zeros(HISTORY, float)
+ 
+         curve = CpuCurve('Total')
+         curve.setColor(Qt.Qt.black)
+         curve.setZ(curve.z() - 2.0)
+         curve.attach(self)
+         self.curves['Total'] = curve
+-        self.data['Total'] = zeros(HISTORY, Float)
++        self.data['Total'] = zeros(HISTORY, float)
+ 
+         curve = CpuCurve('Idle')
+         curve.setColor(Qt.Qt.darkCyan)
+         curve.setZ(curve.z() - 3.0)
+         curve.attach(self)
+         self.curves['Idle'] = curve
+-        self.data['Idle'] = zeros(HISTORY, Float)
++        self.data['Idle'] = zeros(HISTORY, float)
+ 
+         self.showCurve(self.curves['System'], True)
+         self.showCurve(self.curves['User'], True)
+diff --git a/qt4examples/DataDemo.py b/qt4examples/DataDemo.py
+index f87fff2..d83048b 100755
+--- a/qt4examples/DataDemo.py
++++ b/qt4examples/DataDemo.py
+@@ -25,8 +25,8 @@ class DataPlot(Qwt.QwtPlot):
+ 
+         # Initialize data
+         self.x = arange(0.0, 100.1, 0.5)
+-        self.y = zeros(len(self.x), Float)
+-        self.z = zeros(len(self.x), Float)
++        self.y = zeros(len(self.x), float)
++        self.z = zeros(len(self.x), float)
+ 
+         self.setTitle("A Moving QwtPlot Demonstration")
+         self.insertLegend(Qwt.QwtLegend(), Qwt.QwtPlot.BottomLegend);
+diff --git a/qt4examples/ErrorBarDemo.py b/qt4examples/ErrorBarDemo.py
+index 284f349..3f4c7b4 100755
+--- a/qt4examples/ErrorBarDemo.py
++++ b/qt4examples/ErrorBarDemo.py
+@@ -70,11 +70,11 @@ class ErrorBarPlotCurve(Qwt.QwtPlotCurve):
+           (x-dx[0], x+dx[1]) or (y-dy[0], y+dy[1]).
+         """
+         
+-        self.__x = asarray(x, Float)
++        self.__x = asarray(x, float)
+         if len(self.__x.shape) != 1:
+             raise RuntimeError, 'len(asarray(x).shape) != 1'
+ 
+-        self.__y = asarray(y, Float)
++        self.__y = asarray(y, float)
+         if len(self.__y.shape) != 1:
+             raise RuntimeError, 'len(asarray(y).shape) != 1'
+         if len(self.__x) != len(self.__y):
+@@ -83,14 +83,14 @@ class ErrorBarPlotCurve(Qwt.QwtPlotCurve):
+         if dx is None:
+             self.__dx = None
+         else:
+-            self.__dx = asarray(dx, Float)
++            self.__dx = asarray(dx, float)
+         if len(self.__dx.shape) not in [0, 1, 2]:
+             raise RuntimeError, 'len(asarray(dx).shape) not in [0, 1, 2]'
+             
+         if dy is None:
+             self.__dy = dy
+         else:
+-            self.__dy = asarray(dy, Float)
++            self.__dy = asarray(dy, float)
+         if len(self.__dy.shape) not in [0, 1, 2]:
+             raise RuntimeError, 'len(asarray(dy).shape) not in [0, 1, 2]'
+         
+@@ -240,7 +240,7 @@ def make():
+     grid.setPen(Qt.QPen(Qt.Qt.black, 0, Qt.Qt.DotLine))
+     
+     # calculate data and errors for a curve with error bars
+-    x = arange(0, 10.1, 0.5, Float)
++    x = arange(0, 10.1, 0.5, float)
+     y = sin(x)
+     dy = 0.2 * abs(y)
+     # dy = (0.15 * abs(y), 0.25 * abs(y)) # uncomment for asymmetric error bars
+diff --git a/qt4examples/EventFilterDemo.py b/qt4examples/EventFilterDemo.py
+index 219ed42..1d7684c 100755
+--- a/qt4examples/EventFilterDemo.py
++++ b/qt4examples/EventFilterDemo.py
+@@ -237,8 +237,8 @@ class Plot(Qwt.QwtPlot):
+                                       Qt.QPen(color),
+                                       Qt.QSize(8, 8)))
+ 
+-        fixed = base*ones(10, Float)
+-        changing = arange(0, 95.0, 10.0, Float) + 5.0
++        fixed = base*ones(10, float)
++        changing = arange(0, 95.0, 10.0, float) + 5.0
+         if orientation == Qt.Qt.Horizontal:
+             curve.setData(changing, fixed)
+         else:
+@@ -392,8 +392,8 @@ class CanvasPicker(Qt.QObject):
+         if not curve:
+             return
+ 
+-        xData = zeros(curve.dataSize(), Float)
+-        yData = zeros(curve.dataSize(), Float)
++        xData = zeros(curve.dataSize(), float)
++        yData = zeros(curve.dataSize(), float)
+ 
+         for i in range(curve.dataSize()):
+             if i == self.__selectedPoint:
+diff --git a/qt4examples/MapDemo.py b/qt4examples/MapDemo.py
+index b4abf51..22a2219 100755
+--- a/qt4examples/MapDemo.py
++++ b/qt4examples/MapDemo.py
+@@ -49,8 +49,8 @@ class MapDemo(Qt.QMainWindow):
+ 
+         # Initialize map data
+         self.count = self.i = 1000
+-        self.xs = zeros(self.count, Float)
+-        self.ys = zeros(self.count, Float)
++        self.xs = zeros(self.count, float)
++        self.ys = zeros(self.count, float)
+ 
+         self.kappa = 0.2
+ 
+@@ -100,8 +100,8 @@ class MapDemo(Qt.QMainWindow):
+         
+     def setCount(self, count):
+         self.count = self.i = count
+-        self.xs = zeros(self.count, Float)
+-        self.ys = zeros(self.count, Float)
++        self.xs = zeros(self.count, float)
++        self.ys = zeros(self.count, float)
+         self.i = self.count
+         self.killTimer(self.tid)
+         self.tid = self.startTimer(self.ticks)

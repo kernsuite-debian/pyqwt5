@@ -1,0 +1,43 @@
+From ecb7b952b136b482103207221864af92db400c96 Mon Sep 17 00:00:00 2001
+From: SVN-Git Migration <python-modules-team@lists.alioth.debian.org>
+Date: Thu, 8 Oct 2015 10:53:53 -0700
+Subject: 02_examples
+
+MultiDemo is excluded because the Debian package
+is compiled without support for numarray and numeric
+Patch-Name: 02_examples.patch
+---
+ qt4examples/BodeDemo.py | 6 +++---
+ qt4examples/Grab.py     | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/qt4examples/BodeDemo.py b/qt4examples/BodeDemo.py
+index d35c389..a185900 100755
+--- a/qt4examples/BodeDemo.py
++++ b/qt4examples/BodeDemo.py
+@@ -379,9 +379,9 @@ class BodeDemo(QMainWindow):
+         self.connect(self.picker,
+                      SIGNAL('moved(const QPoint &)'),
+                      self.moved)
+-        self.connect(self.picker,
+-                     SIGNAL('selected(const QaPolygon &)'),
+-                     self.selected)
++#        self.connect(self.picker,
++#                     SIGNAL('selected(const QaPolygon &)'),
++#                     self.selected)
+ 
+     # __init__()
+ 
+diff --git a/qt4examples/Grab.py b/qt4examples/Grab.py
+index 084fdda..8658967 100755
+--- a/qt4examples/Grab.py
++++ b/qt4examples/Grab.py
+@@ -29,7 +29,7 @@ jobs = [
+     'ImagePlotDemo',
+     'MapDemo',
+     'MaskedDataDemo',
+-    'MultiDemo',
++#    'MultiDemo',
+     'PickerDemo',
+     'RadioDemo',
+     'ReallySimpleDemo',

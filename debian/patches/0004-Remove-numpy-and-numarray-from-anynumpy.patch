@@ -1,0 +1,41 @@
+From e22e7e1ce7b78ef83edd438d91e137aa4ce17807 Mon Sep 17 00:00:00 2001
+From: "Gudjon I. Gudjonsson" <gudjon@gudjon.org>
+Date: Thu, 18 Aug 2016 11:51:45 +0200
+Subject: Remove numpy and numarray from anynumpy
+
+---
+ qt4lib/PyQt4/Qwt5/anynumpy.py | 19 +++++--------------
+ 1 file changed, 5 insertions(+), 14 deletions(-)
+
+diff --git a/qt4lib/PyQt4/Qwt5/anynumpy.py b/qt4lib/PyQt4/Qwt5/anynumpy.py
+index 6c1248e..d1b1a84 100644
+--- a/qt4lib/PyQt4/Qwt5/anynumpy.py
++++ b/qt4lib/PyQt4/Qwt5/anynumpy.py
+@@ -1,18 +1,8 @@
+-# import either NumPy, or numarray, or Numeric
++# import NumPy but not numarray, or Numeric anymore
+ 
+-for name in ('numpy', 'numarray', 'Numeric'):
+-    failed = False
+-    try:
+-         eval(compile('from %s import *' % name, 'eval', 'exec'))
+-         if name == 'numpy':
+-             from numpy.oldnumeric.compat import *
+-             Float = float
+-             UInt8 = uint8
+-    except ImportError:
+-        failed = True
+-    if not failed:
+-        break
+-else:
++try:
++     eval(compile('from numpy import *', 'eval', 'exec'))
++except ImportError:
+     import PyQt4.Qt as Qt
+     if not Qt.QCoreApplication.instance():
+         a = Qt.QApplication([])
+@@ -31,3 +21,4 @@ else:
+ # Local Variables: ***
+ # mode: python ***
+ # End: ***
++

@@ -1,0 +1,5 @@
+01_confiure.patch
+02_examples.patch
+0003-Change-Float-to-float-to-fix-for-non-obsolete-numpy-.patch
+0004-Remove-numpy-and-numarray-from-anynumpy.patch
+0005-Disable-impageplot-example.patch

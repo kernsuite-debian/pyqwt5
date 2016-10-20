@@ -1,0 +1,11 @@
+# see git-dpm(1) from git-dpm package
+9b72afaeb1d8ec8602826fca7889c5bd579f292c
+9b72afaeb1d8ec8602826fca7889c5bd579f292c
+2725fc5cb7cb957a1686214a4b5d79bed432a9a4
+2725fc5cb7cb957a1686214a4b5d79bed432a9a4
+pyqwt5_5.2.1~cvs20091107+dfsg.orig.tar.gz
+1656db3dd45c84afe0d538cba43cc97d114508d9
+223726
+debianTag="debian/%e%v"
+patchedTag="patched/%e%v"
+upstreamTag="upstream/%e%u"
