@@ -1,3 +1,9 @@
+pyqwt5 (5.2.1~cvs20091107+dfsg-8kern2) xenial; urgency=medium
+
+  * build with new key
+
+ -- KERN packaging <packaging@kernsuite.info>  Mon, 04 Dec 2017 17:40:24 +0200
+
 pyqwt5 (5.2.1~cvs20091107+dfsg-8kern1) xenial; urgency=medium
 
   * repack for kern
